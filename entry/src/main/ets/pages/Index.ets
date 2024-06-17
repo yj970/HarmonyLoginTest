@@ -1,4 +1,5 @@
 import router from '@ohos.router'
+import { PhoneUI } from '../widget/PhoneUI'
 /**
  * 1.基本UI控件（Text、TextInput、Image、Span、Button）
  * 2.定时器（setInterval）
@@ -12,7 +13,7 @@ import router from '@ohos.router'
 struct Index {
   @State message: string = 'Hello World'
   @State checked: boolean = false
-  @State phone: string = ''
+  @Provide phone: string = ''
   @State code: string = ''
   @State codeText: string = '获取验证码'
   codeTime: number = 0;
@@ -23,6 +24,9 @@ struct Index {
 
   build() {
     Column() {
+
+      PhoneUI()
+
       Text('欢迎使用XXXX APP')
         .fontSize(20)
         .fontColor('#222222')
@@ -139,6 +143,7 @@ struct Index {
     const codeNoEmpty: boolean = this.code.length > 0;
     this.loginEnable = phoneNoEmpty && codeNoEmpty && this.checked;
   }
+
 }
 
 

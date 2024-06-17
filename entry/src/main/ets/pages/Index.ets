@@ -1,9 +1,10 @@
-
+import router from '@ohos.router'
 /**
  * 1.基本UI控件（Text、TextInput、Image、Span、Button）
  * 2.定时器（setInterval）
  * 3.创建方法（updateLoginBtnUI）
  * 4.Text中，指定文本高亮处理（Span）
+ * 5.route（页面跳转、携带参数)
  */
 
 @Entry
@@ -103,6 +104,11 @@ struct Index {
         Text() {
           Span('请认真阅读并同意').fontColor('#222222')
           Span('用户协议').fontColor(Color.Blue).onClick(() => {
+            // 模拟跳转
+            router.pushUrl({
+              url: 'pages/MyWeb',
+              params: { url: 'https://www.baidu.com/' }
+            }, router.RouterMode.Standard)
           })
           Span('、').fontColor('#222222')
           Span('隐私政策').fontColor(Color.Blue).onClick(() => {
